@@ -1,6 +1,7 @@
 mkfile_dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-TEST_LIST := test_lottery test_space_and_comma test_shell_commands
+TEST_LIST := test_lottery test_serial_number
+TEST_LIST += test_space_and_comma test_shell_commands
 
 .PHONY: test $(TEST_LIST)
 test: $(TEST_LIST)
