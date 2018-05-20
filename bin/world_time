@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+mkfile_dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+lib_dir := $(mkfile_dir)../lib
+#include $(lib_dir)/color_msg.makefile
+
+cities := Europe/Moscow Europe/Paris America/Los_Angeles
+
+all: $(cities)
+
+$(cities):
+	$(eval date:=$(shell TZ=$@ date))
+	@#echo "$@: `TZ=$@ date`"
+	@#echo "$@: $(date)"
+	$(eval percent:=%)
+	@printf "$(percent)25s: $(date)\n" $@
+
+.PHONY: $(cities) all
