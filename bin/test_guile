@@ -1,0 +1,19 @@
+#! /usr/bin/guile \
+-e main
+!#
+(use-modules (ice-9 format))
+
+(define (main args)
+  (display "Guile test\n")
+  (write args)
+  (newline)
+  (format #t "10! = ~d" (fact 10))
+  (newline)
+)
+
+(define (fact n)
+  (if (zero? n) 1
+    (* n (fact (- n 1)))
+  )
+)
+
